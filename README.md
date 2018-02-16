@@ -1,6 +1,6 @@
 # serverless-codepipeline-slack-notifier
 
-Notify you slack channel about your aws codepipeline status ☺️
+Notify your slack channel about the aws codepipeline status ☺️.
 
 ## Instructions
 
