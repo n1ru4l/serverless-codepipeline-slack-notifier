@@ -1,9 +1,7 @@
 "use strict";
 
-const http = require("http");
 const fetch = require("node-fetch");
-
-const { SLACK_HOOK_URL } = process.env;
+const { SLACK_HOOK_URL } = require("./env")();
 
 const getColor = state =>
   ({

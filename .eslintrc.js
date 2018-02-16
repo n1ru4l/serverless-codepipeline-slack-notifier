@@ -4,5 +4,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 8
   },
-  extends: ["prettier"]
+  env: {
+    node: true
+  },
+  extends: ["eslint:recommended", "prettier"]
 };
