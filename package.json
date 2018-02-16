@@ -1,0 +1,30 @@
+{
+  "name": "serverless-codepipeline-slack-notifier",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository":
+    "https://github.com/n1ru4l/serverless-codepipeline-slack-notifier.git",
+  "author": "Laurin Quast <laurinquast@googlemail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-prettier": "^2.9.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
+    "serverless": "^1.26.0"
+  },
+  "dependencies": {
+    "envalid": "^4.1.2",
+    "lodash": "^4.17.5",
+    "node-fetch": "^2.0.0"
+  },
+  "scripts": {
+    "eslint": "eslint --ignore-path .gitignore **/*.js",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,md,json}": ["prettier --write", "git add"]
+  }
+}

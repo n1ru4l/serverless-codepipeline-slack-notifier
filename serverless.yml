@@ -1,0 +1,24 @@
+service: codepipeline-slack-notifier
+
+provider:
+  name: aws
+  region: "eu-central-1"
+  runtime: nodejs6.10
+custom:
+  environment: ${file(./env.js)}
+
+functions:
+  slack:
+    handler: handler.slack
+    environment:
+      SLACK_HOOK_URL: ${self:custom.environment.SLACK_HOOK_URL}
+    events:
+      - cloudwatchEvent:
+          event:
+            source:
+              - "aws.codepipeline"
+            detail-type:
+                - "CodePipeline Pipeline Execution State Change"
+            detail:
+              pipeline: 
+                - ${self:custom.environment.PIPELINE}

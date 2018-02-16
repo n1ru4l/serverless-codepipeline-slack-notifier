@@ -1,0 +1,17 @@
+# OSX
+#
+.DS_Store
+
+# Build
+dist
+lib
+.serverless
+
+# env
+.env
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
