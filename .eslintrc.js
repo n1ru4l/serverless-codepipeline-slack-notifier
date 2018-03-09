@@ -5,7 +5,9 @@ module.exports = {
     ecmaVersion: 8
   },
   env: {
-    node: true
+    node: true,
+    es6: true
   },
-  extends: ["eslint:recommended", "prettier"]
+  plugins: ["node"],
+  extends: ["eslint:recommended", "plugin:node/recommended", "prettier"]
 };
