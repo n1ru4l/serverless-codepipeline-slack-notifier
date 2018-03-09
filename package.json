@@ -17,8 +17,8 @@
     "serverless": "^1.26.0"
   },
   "dependencies": {
-    "envalid": "^4.1.2",
-    "lodash": "^4.17.5",
+    "envalid": "^4.1.4",
+    "lodash.pick": "^4.4.0",
     "node-fetch": "^2.0.0"
   },
   "scripts": {

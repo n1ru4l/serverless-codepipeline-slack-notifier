@@ -1,7 +1,7 @@
 "use strict";
 
 const fetch = require("node-fetch");
-const { SLACK_HOOK_URL } = require("./env")();
+const { getPipelineMappings } = require("./util");
 
 const getColor = state =>
   ({
@@ -9,12 +9,16 @@ const getColor = state =>
     SUCCEEDED: "good"
   }[state] || "danger");
 
+const pipelineMappings = getPipelineMappings();
+
 module.exports.slack = ({ detail }) => {
   const pipeline = detail["pipeline"];
   const executionId = detail["execution-id"];
   const state = detail["state"];
 
-  return fetch(SLACK_HOOK_URL, {
+  const slackHookUrl = pipelineMappings.get(pipeline);
+
+  return fetch(slackHookUrl, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({

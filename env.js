@@ -1,9 +1,8 @@
 const { str, cleanEnv } = require("envalid");
-const { pick } = require("lodash");
+const pick = require("lodash.pick");
 
 const config = {
-  SLACK_HOOK_URL: str(),
-  PIPELINE: str()
+  PIPELINE_MAPPINGS: str()
 };
 
 const variablesToPick = Object.keys(config);

@@ -11,7 +11,7 @@ functions:
   slack:
     handler: handler.slack
     environment:
-      SLACK_HOOK_URL: ${self:custom.environment.SLACK_HOOK_URL}
+      PIPELINE_MAPPINGS: ${self:custom.environment.PIPELINE_MAPPINGS}
     events:
       - cloudwatchEvent:
           event:
@@ -20,5 +20,4 @@ functions:
             detail-type:
                 - "CodePipeline Pipeline Execution State Change"
             detail:
-              pipeline: 
-                - ${self:custom.environment.PIPELINE}
+              pipeline: ${file(./util.js):getPipelines}
